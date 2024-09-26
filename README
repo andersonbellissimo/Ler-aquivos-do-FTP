@@ -1,0 +1,131 @@
+# Projeto: Levantamento e Geração de Relatório de Posts HTML
+
+## Descrição
+
+Este projeto tem como objetivo analisar uma estrutura de pastas contendo arquivos HTML que foram extraídos de um FTP e gerar um relatório detalhado com os títulos dos posts (extraídos da meta tag `og:title`), a subpasta em que cada post se encontra, a pasta de origem de cada arquivo, e o nome do arquivo. O resultado é salvo em um arquivo HTML estilizado, que inclui:
+
+- Um levantamento por pasta, mostrando a quantidade de posts em cada pasta.
+- Um levantamento total, mostrando a quantidade total de posts.
+- Navegação organizada por pastas e subpastas.
+
+## Funcionalidades
+
+1. **Leitura de arquivos HTML**: O script percorre as pastas e subpastas do diretório especificado, procurando arquivos HTML.
+2. **Extração de Títulos**: Para cada arquivo HTML encontrado, o script extrai o título do post contido na meta tag `<meta property="og:title">`.
+3. **Relatório Detalhado**: O relatório gerado mostra:
+    - A pasta de origem do post.
+    - A subpasta em que o post se encontra (se existir).
+    - O título do post (extraído da meta tag).
+    - O nome do arquivo HTML correspondente.
+4. **Levantamento de Posts por Pasta**:
+    - O relatório apresenta, no topo da página HTML, a quantidade de posts em cada pasta, bem como a contagem total de posts.
+5. **HTML Estilizado**: O relatório gerado é estilizado para facilitar a navegação e leitura, e inclui uma tabela com todos os dados de forma organizada.
+
+## Estrutura do Projeto
+
+```bash
+bash
+Copiar código
+├── lerTitulos.js       # Script principal em JavaScript
+├── relatorio_posts_completo.html   # Relatório gerado em HTML
+└── README.md           # Documentação do projeto
+
+```
+
+## Requisitos
+
+- **Node.js** instalado na máquina.
+- Arquivos HTML organizados em uma estrutura de pastas e subpastas.
+- Caminho dos arquivos HTML especificado corretamente no script.
+
+## Como Usar
+
+1. **Instale o Node.js**:
+Se ainda não tiver o Node.js instalado, baixe e instale a partir do [site oficial](https://nodejs.org/).
+2. **Clone ou Baixe este Repositório**:
+    - Você pode clonar este repositório ou simplesmente baixar o arquivo `lerTitulos.js` e colocá-lo na sua máquina.
+3. **Defina o Caminho do Diretório**:
+No script `lerTitulos.js`, atualize a variável `directoryPath` com o caminho da pasta onde estão os arquivos HTML. Exemplo:
+    
+    ```jsx
+    javascript
+    Copiar código
+    const directoryPath = 'C:/Users/Admin/Desktop/Ler aquivos do FTP/getinside-backup';
+    
+    ```
+    
+4. **Execute o Script**:
+    - No terminal, navegue até o diretório onde está o script e execute o seguinte comando:
+    
+    ```bash
+    bash
+    Copiar código
+    node lerTitulos.js
+    
+    ```
+    
+    O script irá processar todos os arquivos HTML na pasta e subpastas especificadas e gerar um arquivo HTML estilizado contendo o relatório.
+    
+5. **Visualize o Relatório**:
+    - Após a execução, o relatório gerado será salvo como `relatorio_posts_completo.html` na pasta do projeto.
+    - Abra o arquivo gerado em qualquer navegador para visualizar o relatório completo.
+
+## Exemplo de Saída
+
+A saída gerada pelo script será um arquivo HTML contendo:
+
+### Levantamento por Pasta:
+
+```yaml
+yaml
+Copiar código
+Levantamento por Pasta:
+Pasta: how-to-wear - Quantidade de Posts: 158
+Pasta: howtowear - Quantidade de Posts: 191
+Levantamento Total: 349 posts no total.
+
+```
+
+### Tabela dos Posts:
+
+| Pasta de Origem | Subpasta | Post (Título) | Arquivo |
+| --- | --- | --- | --- |
+| how-to-wear | subpasta1 | Como Usar Sapatos | post1.html |
+| howtowear | subpasta2 | Qual Schutz Você É? | post2.html |
+
+## Estilo
+
+O HTML gerado inclui os seguintes estilos básicos:
+
+- **Layout Responsivo**: O layout foi desenvolvido para ser responsivo e facilitar a visualização em diferentes tamanhos de tela.
+- **Tabela com Dados**: A tabela apresenta uma visualização organizada das pastas, subpastas, títulos e arquivos.
+- **Seção de Levantamento**: Um cabeçalho no topo exibe a quantidade de posts por pasta e o levantamento total de posts.
+- **Cores e Estilo Moderno**: O design usa uma paleta de cores clean para facilitar a leitura e navegação.
+
+## Customização
+
+Se quiser ajustar o estilo ou funcionalidade do relatório gerado, você pode editar o CSS no trecho de estilo dentro do arquivo `lerTitulos.js`. Para customizar:
+
+```jsx
+javascript
+Copiar código
+<style>
+  body { font-family: Arial, sans-serif; background-color: #f4f4f9; margin: 0; padding: 20px; }
+  h1 { text-align: center; }
+  h2 { font-size: 18px; color: #000000; margin-top: 30px; }
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+  th, td { padding: 10px; border: 1px solid #ddd; }
+  th { background-color: #007bff; color: white; }
+  .folder-header { font-size: 18px; font-weight: bold; background-color: #f8f9fa; padding: 10px; }
+  .post-title { font-size: 14px; color: #6c757d; }
+  .container { max-width: 900px; margin: 0 auto; }
+  .summary { background-color: #007bff; color: white; padding: 10px; margin-bottom: 20px; }
+  .post-count { font-size: 16px; margin-bottom: 5px; }
+  .total-count { font-weight: bold; font-size: 20px; }
+</style>
+
+```
+
+## Licença
+
+Este projeto é livre para uso pessoal e comercial. Sinta-se à vontade para modificar e expandir conforme suas necessidades.

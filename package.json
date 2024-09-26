@@ -1,0 +1,18 @@
+{
+  "name": "ler-aquivos-do-ftp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "basic-ftp": "^5.0.5",
+    "unidecode": "^1.1.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {},
+  "description": ""
+}
